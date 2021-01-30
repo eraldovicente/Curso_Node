@@ -61,14 +61,25 @@ const id = 1;
 
 /** Manejar promesas em cadeia se ver pior que manejar callbacks */
 
+// getEmpleado(id)
+//      .then( empleado => {
+
+//           getSalario( id )
+//                .then( salario => {
+
+//                     console.log('El empleado: ', empleado, 'tiene un salario de: ', salario );
+//                })
+//                .catch( err => console.log(err))
+//      })
+//      .catch( err => console.log(err))
+
+let nombre;
+
+// Promesas en cadena
 getEmpleado(id)
-     .then( empleado => {
-
-          getSalario( id )
-               .then( salario => {
-
-                    console.log('El empleado: ', empleado, 'tiene un salario de: ', salario );
-               })
-               .catch( err => console.log(err))
+     .then( empleado => { 
+          nombre = empleado;
+          return getSalario( id ) 
      })
-     .catch( err => console.log(err))
+     .then( salario => console.log( 'El empleado: ', nombre, ' tiene un salario de: ', salario ) )
+     .catch( err => console.log(err));
