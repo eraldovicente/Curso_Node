@@ -59,7 +59,7 @@ const id = 1;
 //      .catch( err => console.log(err) );
 
 
-/** Manejar promesas em cadeia se ver pior quer manejar callbacks */
+/** Manejar promesas em cadeia se ver pior que manejar callbacks */
 
 getEmpleado(id)
      .then( empleado => {
