@@ -1,4 +1,5 @@
 const fs = require('fs');
+const colors = require('colors');
 
 const crearArchivo = async ( base = 5, listar = false ) => {
 
@@ -9,14 +10,14 @@ const crearArchivo = async ( base = 5, listar = false ) => {
      
           for (let i = 0; i <= 10; i++) {
      
-               salida += `${ base } X ${ i } = ${ base * i }\n`;
+               salida += `${ base } ${ 'X'.green } ${ i } ${ '='.green } ${ base * i }\n`;
           }
           
           if ( listar ) {
 
-               console.log('=======================');
-               console.log('     Tabla del:', base );
-               console.log('=======================');
+               console.log('======================='.green);
+               console.log('     Tabla del:'.green, colors.blue( base ) );
+               console.log('======================='.green);
           
                console.log(salida);
           }
