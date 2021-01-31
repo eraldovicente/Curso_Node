@@ -2,7 +2,11 @@ const { crearArchivo } = require('./helpers/multiplicar');
 
 console.clear();
 
-const base = 3;
+const [ , , arg3 = 'base=5' ] = process.argv;
+const [ , base ] = arg3.split('=');
+// console.log( base );
+
+// const base = 3;
 
 crearArchivo( base )
      .then( nombreArchivo => console.log( nombreArchivo, 'creado' ) )
