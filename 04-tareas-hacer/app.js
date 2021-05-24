@@ -19,11 +19,9 @@ const main = async () => {
 
      const tareasDB = leerDB();
 
-     if ( tareasDB ) {
-          // Establecar las tareas
+     if ( tareasDB ) { // cargar tareas
+          tareas.cargarTareasFromArray( tareasDB );
      }
-
-     await pausa();
 
      do {
           // Esta funcción imprime el menú
