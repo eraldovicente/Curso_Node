@@ -49,9 +49,9 @@ const main = async () => {
                     tareas.listarPendientesCompletados(false);
                break;
 
-               case '5':
+               case '5': // completado | pendiente
                     const ids = await mostrarListadoChecklist( tareas.listadoArr );
-                    console.log(ids);
+                    tareas.toggleCompletadas( ids );
                break;
 
                case '6': // Borrar
