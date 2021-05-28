@@ -8,14 +8,28 @@ class Busquedas {
           // TODO DB si existe
      }
 
+     get paramsMapbox() {
+          return {
+
+               'access_token': 'pk.eyJ1IjoiZXJhbGRvMSIsImEiOiJja3A4b2NiNTYwYWRyMm5teGtsZTI0dGxrIn0.zbIXrALKUR3hX8TrIDArzw',                         
+               // 'cachebuster': 1622228455788,
+               // 'autocomplete': true,
+               'limit': 8,
+               'language': 'es'
+          }
+     }
+
      async ciudad( lugar = '' ) {
 
           try {
                
                // petición http
-               // console.log('ciudad', lugar);
-     
-               const resp = await axios.get('https://api.mapbox.com/geocoding/v5/mapbox.places/Ottawa.json?access_token=pk.eyJ1IjoiZXJhbGRvMSIsImEiOiJja3A4b2NiNTYwYWRyMm5teGtsZTI0dGxrIn0.zbIXrALKUR3hX8TrIDArzw&cachebuster=1622228455788&autocomplete=true&limit=8&language=es');
+               const instance = axios.create({
+                    baseURL: `https://api.mapbox.com/geocoding/v5/mapbox.places/${ lugar }.json`,
+                    params: this.paramsMapbox
+               });
+
+               const resp = await instance.get();
                console.log(resp.data);
      
      
