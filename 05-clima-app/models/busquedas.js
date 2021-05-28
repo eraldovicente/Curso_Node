@@ -11,7 +11,7 @@ class Busquedas {
      get paramsMapbox() {
           return {
 
-               'access_token': 'pk.eyJ1IjoiZXJhbGRvMSIsImEiOiJja3A4b2NiNTYwYWRyMm5teGtsZTI0dGxrIn0.zbIXrALKUR3hX8TrIDArzw',                         
+               'access_token': process.env.MAPBOX_KEY,                         
                // 'cachebuster': 1622228455788,
                // 'autocomplete': true,
                'limit': 8,
