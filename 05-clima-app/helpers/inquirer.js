@@ -8,31 +8,15 @@ const preguntas = [
           message: '?Qué desea hacer?',
           choices: [
                {
-                    value: '1',
-                    name: `${'1.'.brightRed} Crear tarea`
+                    value: 1,
+                    name: `${'1.'.brightRed} Buscar ciudad`
                },
                {
-                    value: '2',
-                    name: `${'2.'.brightRed} Listar tareas`
+                    value: 2,
+                    name: `${'2.'.brightRed} Historial`
                },
                {
-                    value: '3',
-                    name: `${'3.'.brightRed} Listar tareas completadas`
-               },
-               {
-                    value: '4',
-                    name: `${'4.'.brightRed} Listar tareas pendientes`
-               },
-               {
-                    value: '5',
-                    name: `${'5.'.brightRed} Completar tarea(s)`
-               },
-               {
-                    value: '6',
-                    name: `${'6.'.brightRed} Borrar tarea`
-               },
-               {
-                    value: '0',
+                    value: 0,
                     name: `${'0.'.brightRed} Salir`
                }
           ]
