@@ -15,7 +15,7 @@ class Busquedas {
                // petición http
                // console.log('ciudad', lugar);
      
-               const resp = await axios.get('https://reqres.in/api/users?page=2');
+               const resp = await axios.get('https://api.mapbox.com/geocoding/v5/mapbox.places/Ottawa.json?access_token=pk.eyJ1IjoiZXJhbGRvMSIsImEiOiJja3A4b2NiNTYwYWRyMm5teGtsZTI0dGxrIn0.zbIXrALKUR3hX8TrIDArzw&cachebuster=1622228455788&autocomplete=true&limit=8&language=es');
                console.log(resp.data);
      
      
