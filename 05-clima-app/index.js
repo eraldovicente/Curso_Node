@@ -28,6 +28,7 @@ const main = async() => {
                     // console.log(lugarSel);
 
                     // Clima
+                    const clima = await busquedas.climaLugar();
 
                     // Mostrar resultados
                     console.log('\n Información de la ciudad\n'.green);
@@ -37,6 +38,7 @@ const main = async() => {
                     console.log('Temperatura:', );
                     console.log('Mínima:', );
                     console.log('Máxima:', );
+                    console.log('Como está el clima:', );
 
                break;
           }
