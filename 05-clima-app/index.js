@@ -28,17 +28,17 @@ const main = async() => {
                     // console.log(lugarSel);
 
                     // Clima
-                    const clima = await busquedas.climaLugar();
+                    const clima = await busquedas.climaLugar( lugarSel.lat, lugarSel.lng );
 
                     // Mostrar resultados
                     console.log('\n Información de la ciudad\n'.green);
                     console.log('Ciudad:', lugarSel.nombre );
                     console.log('Lat:', lugarSel.lat );
                     console.log('Lng:', lugarSel.lng );
-                    console.log('Temperatura:', );
-                    console.log('Mínima:', );
-                    console.log('Máxima:', );
-                    console.log('Como está el clima:', );
+                    console.log('Temperatura:', clima.temp );
+                    console.log('Mínima:', clima.min );
+                    console.log('Máxima:', clima.max );
+                    console.log('Como está el clima:', clima.desc.green );
 
                break;
           }
