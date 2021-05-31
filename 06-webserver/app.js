@@ -2,11 +2,14 @@ const express = require('express');
 const app = express();
 const port = 8080;
 
+// TODO require('hbs')
+app.set('view engine', 'hbs');
+
 // Servir contenido estático
 app.use( express.static('public') );
  
-app.get('/elements', (req, res) => {
-     res.sendFile( __dirname + '/public/elements.html')
+app.get('/', (req, res) => {
+     res.render('home');
 });
 
 app.get('/generic', (req, res) => {
