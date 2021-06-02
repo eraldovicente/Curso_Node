@@ -1,2 +1,4 @@
-05-clima-app/.env
+*/.env
 */node_modules
+07-restserver/.env
+
