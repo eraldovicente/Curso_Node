@@ -1,6 +1,10 @@
 const { response } = require('express');
 const { Categoria } = require('../models');
 
+// obtenerCategorias - paginado - total - populate
+
+// obtenerCategoria - populate {}
+
 const crearCategoria = async(req, res = response ) => {
 
      const nombre = req.body.nombre.toUpperCase();
@@ -27,6 +31,10 @@ const crearCategoria = async(req, res = response ) => {
 
      res.status(201).json(categoria);
 }
+
+// actualizarCategoria
+
+// borrarCategoria - estado:false
 
 module.exports = {
      crearCategoria
