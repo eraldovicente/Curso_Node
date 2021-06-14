@@ -15,7 +15,7 @@ const { existeCategoriaPorId, existeProductoPorId } = require('../helpers/db-val
 const router = Router();
 
 /*
-* {{url}}/api/categorias
+* {{url}}/api/productos
 */
 
 // Obtener todas las categorias - publico
