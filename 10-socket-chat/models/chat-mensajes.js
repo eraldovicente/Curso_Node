@@ -29,7 +29,7 @@ class ChatMensajes {
           );
       }
 
-      agregarUsuario( usuario ) {
+      conectarUsuario( usuario ) {
            this.usuarios[usuario.id] = usuario;
       }
 
