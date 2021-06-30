@@ -6,11 +6,11 @@ let usuario = null;
 let socket  = null;
 
 // Referencias HTML
-const txtUid     = document.querySelector('#ulUsuarios');
-const txtMensaje = document.querySelector('#ulUsuarios');
+const txtUid     = document.querySelector('#txtUid');
+const txtMensaje = document.querySelector('#txtMensaje');
 const ulUsuarios = document.querySelector('#ulUsuarios');
-const ulMensajes = document.querySelector('#ulUsuarios');
-const btnSalir   = document.querySelector('#ulUsuarios');
+const ulMensajes = document.querySelector('#ulMensajes');
+const btnSalir   = document.querySelector('#btnSalir');
 
 
 // Validar el token del localstorage
@@ -51,8 +51,8 @@ const conectarSocket = async() => {
           console.log('Sockets offline');
      });
 
-     socket.on('recibir-mensajes', () => {
-          // TODO:
+     socket.on('recibir-mensajes', (payload) => {
+          console.log(payload);
      });
 
      socket.on('usuarios-activos', dibujarUsuarios );
@@ -80,6 +80,19 @@ const dibujarUsuarios = ( usuarios = []) => {
 
      ulUsuarios.innerHTML = usersHtml;
 }
+
+txtMensaje.addEventListener('keyup', ({ keyCode }) => {
+     
+     const mensaje = txtMensaje.value;
+     const uid     = txtUid.value;
+
+     if( keyCode !== 13 ){ return; }
+     if( mensaje.length === 0 ){ return; }
+
+     socket.emit('enviar-mensaje', { mensaje, uid } );
+
+     txtMensaje.value = '';
+});
 
 const main = async() => {
 
