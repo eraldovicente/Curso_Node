@@ -54,8 +54,8 @@ const conectarSocket = async() => {
      socket.on('recibir-mensajes', dibujarMensajes );
      socket.on('usuarios-activos', dibujarUsuarios );
 
-     socket.on('mensaje-privado', () => {
-          // TODO:
+     socket.on('mensaje-privado', ( payload ) => {
+          console.log('Privado: ', payload );
      });
 
 }
@@ -65,7 +65,7 @@ const dibujarUsuarios = ( usuarios = []) => {
      let usersHtml = '';
      usuarios.forEach( ({ nombre, uid }) => {
 
-          usersHtml = `
+          usersHtml += `
                <li>
                     <p>
                          <h5 class="text-success"> ${ nombre } </h5>
@@ -83,7 +83,7 @@ const dibujarMensajes = ( mensajes = []) => {
      let mensajesHTML = '';
      mensajes.forEach( ({ nombre, mensaje }) => {
 
-          mensajesHTML = `
+          mensajesHTML += `
                <li>
                     <p>
                          <span class="text-primary"> ${ nombre }: </span>
