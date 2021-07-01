@@ -74,11 +74,16 @@ exports.putUsuario = (req, res) => __awaiter(void 0, void 0, void 0, function* (
         });
     }
 });
-exports.deleteUsuario = (req, res) => {
+exports.deleteUsuario = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { id } = req.params;
-    res.json({
-        msg: 'deleteUsuario',
-        id
-    });
-};
+    const usuario = yield usuario_1.default.findByPk(id);
+    if (!usuario) {
+        return res.status(404).json({
+            msg: 'No existe un usuario con el id ' + id
+        });
+    }
+    yield usuario.update({ estado: false });
+    // await usuario.destroy();
+    res.json(usuario);
+});
 //# sourceMappingURL=usuarios.js.map
