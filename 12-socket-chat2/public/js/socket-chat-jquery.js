@@ -1,7 +1,13 @@
 var params = new URLSearchParams(window.location.search);
 
+var nombre = params.get('nombre');
+var sala = params.get('sala');
+
 // referencias de jQuery
 var divUsuarios = $('#divUsuarios');
+var formEnviar  = $('#formEnviar');
+var txtMensaje  = $('#txtMensaje');
+var divChatbox  = $('#divChatbox');
 
 // Funciones para renderizar usuarios
 function renderizarUsuarios( personas ) { // [{},{},{}]
@@ -25,6 +31,22 @@ function renderizarUsuarios( personas ) { // [{},{},{}]
 
 }
 
+function renderizarMensajes( mensaje ) {
+
+     var html = '';
+
+     html += '<li class="animated fadeIn">';
+     html += '     <div class="chat-img"><img src="assets/images/users/1.jpg" alt="user" /></div>';
+     html += '     <div class="chat-content">';
+     html += '          <h5>' + mensaje.nombre + '</h5>';
+     html += '          <div class="box bg-light-info">' + mensaje.mensaje + '</div>';
+     html += '     </div>';
+     html += '     <div class="chat-time">10:56 am</div>';
+     html += '</li>';
+
+     divChatbox.append(html);
+}
+
 // Listeners
 divUsuarios.on('click', 'a', function(){
 
@@ -34,4 +56,22 @@ divUsuarios.on('click', 'a', function(){
 
           console.log(id);
      }
+});
+
+formEnviar.on('submit', function(e){
+
+     e.preventDefault();
+
+     if( txtMensaje.val().trim().length === 0) {
+          return;
+     }
+
+     socket.emit('crearMensaje', {
+          nombre: nombre,
+          mensaje: txtMensaje.val()
+     }, function(mensaje) {
+          txtMensaje.val('').focus();
+          renderizarMensajes(mensaje);
+     });
+
 });
